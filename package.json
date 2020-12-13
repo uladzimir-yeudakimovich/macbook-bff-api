@@ -11,9 +11,10 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "publish:image": "sh ./scripts/docker/build-and-publish.sh",
-    "eb:deploy": "eb deploy",
-    "deploy": "sh ./scripts/docker/deploy.sh",
+    "eb-init": "eb init --platform node.js --region eu-west-1",
+    "eb-create": "eb create macbook-bff-api --single --cname macbook-bff-api-dev",
+    "eb:deploy": "cross-env npm=cache bash ./scripts/build-and-deploy.sh",
+    "eb:install:deploy": "bash ./scripts/build-and-deploy.sh",
     "eb-terminate": "eb terminate",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
