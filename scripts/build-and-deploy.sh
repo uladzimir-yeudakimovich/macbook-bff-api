@@ -36,6 +36,8 @@ fi \
 && cd ../.. \
 && echo '### Complete 3/5' \
 && echo '### Deploying...' \
+&& sed '/deploy*/d;/test\.com/d' -i $EB_CONFIG \
+&& sed '/artifact*/d;/test\.com/d' -i $EB_CONFIG \
 && printf '%s\n  %s\n' 'deploy:' 'artifact: '$EB_PATH/$ARCHIVE_NAME >> $EB_CONFIG \
 && eb deploy --staged \
 && echo 'Complete 4/5'
