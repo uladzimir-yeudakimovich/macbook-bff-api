@@ -5,12 +5,16 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "engines": {
+    "node": "12.19.0"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "publish:image": "sh ./scripts/build-and-publish.sh",
-    "eb:deploy": "eb deploy",
-    "deploy": "sh ./scripts/deploy.sh",
+    "eb-init": "eb init --platform node.js --region eu-west-1",
+    "eb-create": "eb create macbook-bff-api --single --cname macbook-bff-api-dev",
+    "eb-deploy": "eb deploy",
+    "eb-terminate": "eb terminate",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
