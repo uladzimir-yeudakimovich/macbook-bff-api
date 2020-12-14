@@ -5,16 +5,12 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "engines": {
-    "node": "12.19.0"
-  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
     "eb-init": "eb init --platform node.js --region eu-west-1",
     "eb-create": "eb create macbook-bff-api --single --cname macbook-bff-api-dev",
-    "eb:deploy": "cross-env npm=cache bash ./scripts/build-and-deploy.sh",
-    "eb:install:deploy": "bash ./scripts/build-and-deploy.sh",
+    "eb-deploy": "eb deploy",
     "eb-terminate": "eb terminate",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -46,7 +42,6 @@
     "@types/supertest": "^2.0.10",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
-    "cross-env": "^7.0.3",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "7.0.0",
     "eslint-plugin-prettier": "^3.1.4",
